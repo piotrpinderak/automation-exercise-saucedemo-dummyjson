@@ -1,0 +1,36 @@
+{
+  "name": "automation-exercise-saucedemo-dummyjson",
+  "description": "End-to-end UI and API automation framework based on CodeceptJS, Playwright, REST helper and Gherkin with Allure reporting",
+  "scripts": {
+    "clean:ui": "node -e \"require('fs').rmSync('output/ui',{recursive:true,force:true}); require('fs').rmSync('allure-report/ui',{recursive:true,force:true});\"",
+    "clean:api": "node -e \"require('fs').rmSync('output/api',{recursive:true,force:true}); require('fs').rmSync('allure-report/api',{recursive:true,force:true});\"",
+    "clean:all": "node -e \"require('fs').rmSync('output/ui',{recursive:true,force:true}); require('fs').rmSync('output/api',{recursive:true,force:true}); require('fs').rmSync('allure-report/ui',{recursive:true,force:true}); require('fs').rmSync('allure-report/api',{recursive:true,force:true});\"",
+
+    "test:ui": "npm run clean:ui && npx codeceptjs run -c codecept.conf.js --steps",
+    "test:ui:headless": "npm run clean:ui && npx codeceptjs run -c codecept.conf.js --steps --headless",
+    "test:api": "npm run clean:api && npx codeceptjs run -c codecept.api.conf.js --steps",
+
+    "allure:generate:ui": "npx allure generate output/ui --clean -o allure-report/ui",
+    "allure:open:ui": "npx allure open allure-report/ui",
+    "allure:generate:api": "npx allure generate output/api --clean -o allure-report/api",
+    "allure:open:api": "npx allure open allure-report/api",
+
+    "test:ui:report": "npm run test:ui && npm run allure:generate:ui && npm run allure:open:ui",
+    "test:api:report": "npm run test:api && npm run allure:generate:api && npm run allure:open:api",
+
+    "test:ui:one:report": "npm run clean:ui && npx codeceptjs run -c codecept.conf.js --steps",
+    "test:api:one:report": "npm run clean:api && npx codeceptjs run -c codecept.api.conf.js --steps",
+
+    "report:ui": "npm run allure:generate:ui && npm run allure:open:ui",
+    "report:api": "npm run allure:generate:api && npm run allure:open:api",
+
+    "test:all": "npm run test:ui && npm run test:api",
+    "test:all:report": "npm run test:all && npm run allure:generate:ui && npm run allure:generate:api"
+  },
+  "devDependencies": {
+    "@codeceptjs/allure-legacy": "^1.0.2",
+    "allure-commandline": "^2.36.0",
+    "codeceptjs": "^3.7.5",
+    "playwright": "^1.57.0"
+  }
+}
