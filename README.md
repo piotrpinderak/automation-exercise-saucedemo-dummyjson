@@ -159,35 +159,129 @@ Observed API behavior:
 - limit < 0 is normalized relative to total number of products
 
 
-## Installation
+# Installation
 
-### Prerequisites
+## Prerequisites
 
-- Node.js
-- npm (comes with Node.js)
+### 1. Install Git
+Download from: https://git-scm.com
+
+During installation select:
+
+Git from the command line and also from 3rd‑party software**
+
+### 2. Install Node.js (includes npm)
+Download: https://nodejs.org
 
 Verify installation:
 
-node -v  
+```
+node -v
 npm -v
+```
 
-### Clone the repository
+If PowerShell blocks npm scripts with an error like:
 
-Clone the repository from GitHub:
+```
+running scripts is disabled on this system
+```
 
+run:
+
+```
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+```
+
+or use Git Bash instead of PowerShell.
+
+---
+
+### 3. Install Java (required for Allure reports)
+
+Allure Commandline requires Java.
+
+Download JDK:  
+https://adoptium.net
+
+Set environment variable:
+
+```
+JAVA_HOME = C:\Program Files\Eclipse Adoptium\jdk-XX
+```
+
+Add to PATH:
+
+```
+%JAVA_HOME%\bin
+```
+
+Verify:
+
+```
+java -version
+```
+
+---
+
+## Clone the repository
+
+```
 git clone https://github.com/piotrpinderak/automation-exercise-saucedemo-dummyjson.git
+cd automation-exercise-saucedemo-dummyjson
+```
 
-### Install dependencies
+---
 
-From the project root directory run:
+## Install Node.js dependencies
 
+```
 npm install
+```
 
-This installs all required dependencies defined in package.json, including:
-- CodeceptJS
-- Playwright
-- Allure Commandline
-- JavaScript
+This installs:
+
+- CodeceptJS  
+- Playwright (library)  
+- Allure commandline wrapper  
+- Other dev dependencies  
+
+---
+
+## Install Playwright browsers
+
+Run:
+
+```
+npx playwright install
+```
+
+## Running tests
+
+### Full UI test suite with report
+
+```
+npm run test:ui:report
+```
+
+### Running a single test
+
+#### If using Git Bash or PowerShell 7+:
+
+```
+npm run clean:ui && npx codeceptjs run -c codecept.conf.js ui/features/<path-to-feature>.feature --steps && npm run allure:generate:ui && npm run allure:open:ui
+```
+
+#### If using Windows PowerShell 5.1 (no support for &&):
+
+```
+npm run clean:ui; npx codeceptjs run -c codecept.conf.js ui/features/<path-to-feature>.feature --steps; npm run allure:generate:ui; npm run allure:open:ui
+```
+
+## Notes for Windows users
+
+- Prefer Git Bash for running chained commands (`&&` works there).
+- PowerShell 5.1 does **not** support `&&`.
+- Ensure Java and Playwright browsers are installed, otherwise Allure and UI tests will fail.
 
 ## Running Tests
 
