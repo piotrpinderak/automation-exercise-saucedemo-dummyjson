@@ -219,7 +219,7 @@ npm run test:all:report
   - UI:  npm run allure:open:ui
   - API: npm run allure:open:api
 
-### Run ONE single test with Allure report (for screenshots / review)
+### Run ONE single test with Allure report
 
 #### UI – single feature
 npm run clean:ui && npx codeceptjs run -c codecept.conf.js ui/features/ui.products.standard_user.sort.feature --steps && npm run allure:generate:ui && npm run allure:open:ui
