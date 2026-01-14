@@ -7,9 +7,6 @@ for https://dummyjson.com.
 The framework is built using CodeceptJS, Playwright, Gherkin syntax
 and Allure Report for test execution analysis and reporting.
 
-UI and API tests are implemented as **separate suites within one repository**
-to keep configuration clean while still allowing unified execution and reporting.
-
 # UI and API in One Repository – Design Decision
 
 For this recruitment task, UI and API automation were implemented within a single repository, but as fully separated suites (independent configurations, folders, and execution commands).
