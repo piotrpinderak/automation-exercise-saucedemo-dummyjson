@@ -115,15 +115,15 @@ Generated folders (output/, allure-report/) are created automatically during exe
 
 - Feature file: ui/features/ui.auth.locked_out.feature
 
-### Additional UI Scenarios
+## Additional UI Scenarios
 
-## Scenario_5 – Negative checkout validation
+### Scenario_5 – Negative checkout validation
 - Feature file: ui/features/ui.checkout.standard_user.negative.feature
 - Purpose:
   - validate required checkout fields
   - verify proper error handling
 
-## Scenario_6 – Session robustness / logout
+### Scenario_6 – Session robustness / logout
 - Feature file: ui/features/ui.session.standard_user.logout_robustness.feature
 - Purpose:
   - validate logout functionality
@@ -147,9 +147,9 @@ Generated folders (output/, allure-report/) are created automatically during exe
 
 - Feature file: api/features/api.products.delay.feature
 
-### Additional API Scenario
+## Additional API Scenario
 
-## Scenario_5 - Pagination robustness
+### Scenario_5 - Pagination robustness
 
 - Feature file: api/features/api.products.pagination_robustness.feature
 - Purpose:
