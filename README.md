@@ -65,33 +65,33 @@ This avoids:
 
 .
 ├── ui/
-│   ├── features/              # UI Gherkin feature files (named by user type)
-│   ├── pages/                 # Page Object Model (UI abstraction)
-│   ├── steps/                 # UI step definitions
-│   └── support/               # UI test data (e.g. users)
-│
+│   ├── features/          # UI Gherkin feature files
+│   ├── pages/             # Page Object Model
+│   ├── steps/             # UI step definitions
+│   └── support/           # UI test data
+
 ├── api/
-│   ├── features/              # API Gherkin feature files
-│   ├── steps/                 # API step definitions
-│   └── support/               # Shared API context (request / response storage)
-│
+│   ├── features/          # API Gherkin feature files
+│   ├── steps/             # API step definitions
+│   └── support/           # API test data
+
 ├── docs/
-│   └── execution-proof/       # Screenshots / proof of test execution
+│   └── execution-proof/   # Screenshots
 │       ├── ui/
-│       └── api/               
-│
+│       └── api/
+
 ├── output/
-│   ├── ui/                    # Raw Allure results for UI tests (generated)
-│   └── api/                   # Raw Allure results for API tests (generated)
-│
+│   ├── ui/                # Raw Allure results for UI tests
+│   └── api/               # Raw Allure results for API tests
+
 ├── allure-report/
-│   ├── ui/                    # Allure HTML report – UI
-│   └── api/                   # Allure HTML report – API
-│
-├── codecept.conf.js           # UI CodeceptJS configuration
-├── codecept.api.conf.js       # API CodeceptJS configuration
-├── package.json               # NPM scripts & dependencies
-├── README.md                  # Project documentation
+│   ├── ui/                # Allure HTML report – UI
+│   └── api/               # Allure HTML report – API
+
+├── codecept.conf.js       # UI CodeceptJS configuration
+├── codecept.api.conf.js   # API CodeceptJS configuration
+├── package.json           # NPM scripts & dependencies
+└── README.md              # Project documentation
 
 Only source files (ui/, api/, docs/, configs) are committed.
 Generated folders (output/, allure-report/) are created automatically during execution.
