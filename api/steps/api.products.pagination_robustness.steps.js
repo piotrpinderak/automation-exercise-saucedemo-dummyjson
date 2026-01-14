@@ -9,7 +9,7 @@ const apiContext = require('../support/apiContext');
  * - skip < 0 is treated as 0 (ignored / clamped)
  * - limit < 0 is treated as: effectiveLimit = total + limit  (e.g., total=194, limit=-10 => 184)
  *
- * We keep the assertions "dynamic" by first fetching total count from the API,
+ * The assertions are kept dynamic by first fetching total count from the API,
  * so the test won't break if DummyJSON dataset changes in the future.
  */
 
