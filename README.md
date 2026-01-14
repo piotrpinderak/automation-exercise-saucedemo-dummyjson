@@ -63,7 +63,7 @@ This avoids:
 
 ## Project Structure
 
-.
+```.
 ├── ui/
 │   ├── features/          # UI Gherkin feature files
 │   ├── pages/             # Page Object Model
@@ -92,6 +92,7 @@ This avoids:
 ├── codecept.api.conf.js   # API CodeceptJS configuration
 ├── package.json           # NPM scripts & dependencies
 └── README.md              # Project documentation
+```
 
 Only source files (ui/, api/, docs/, configs) are committed.
 Generated folders (output/, allure-report/) are created automatically during execution.
